@@ -8,13 +8,13 @@ const result3 = sum(10, 20);
 console.log(result3);
 /********************************************************************************** */
 // 매개변수의 갯수 만큼 인자를 넘기지 않아도 되는 자바스크립트의 특성과 반대됨
-function multiple(a, b) {
-    return a * b;
-}
-const result4 = multiple(10, 20);
-console.log(result4);
-const result5 = multiple(10);
-console.log(result5);
+// function multiple(a: number, b?: number) : number {
+//     return a * b;
+// }
+// const result4 = multiple(10,20);
+// console.log(result4);
+// const result5 = multiple(10);
+// console.log(result5);
 /********************************************************************************** */
 // 매개변수 초기화는 ES6+ 문법과 동일함
 function subtraction(a, b = 100) {
@@ -46,4 +46,16 @@ function sum2(a, ...nums) {
 }
 const result8 = sum2(10, 20, 30, 40); // 10 + (20 + 30 + 40)
 console.log(result8); // 출력: 100
+let vm = {
+    el: '#app',
+    count: 10,
+    init: function () {
+        return () => {
+            return this.count;
+        };
+    }
+};
+let getCount = vm.init();
+let count = getCount();
+console.log(count);
 //# sourceMappingURL=function.js.map

@@ -9,14 +9,14 @@ console.log(result3);
 /********************************************************************************** */
 // 매개변수의 갯수 만큼 인자를 넘기지 않아도 되는 자바스크립트의 특성과 반대됨
 
-function multiple(a: number, b?: number) : number {
-    return a * b;
-}
-const result4 = multiple(10,20);
-console.log(result4);
+// function multiple(a: number, b?: number) : number {
+//     return a * b;
+// }
+// const result4 = multiple(10,20);
+// console.log(result4);
 
-const result5 = multiple(10);
-console.log(result5);
+// const result5 = multiple(10);
+// console.log(result5);
 
 /********************************************************************************** */
 // 매개변수 초기화는 ES6+ 문법과 동일함
@@ -55,3 +55,28 @@ function sum2(a: number, ...nums: number[]) : number {
 
 const result8 = sum2(10, 20, 30, 40);  // 10 + (20 + 30 + 40)
 console.log(result8);  // 출력: 100
+
+/********************************************************************************** */
+
+// this
+// Vue 라는 인터페이스를 정의하여 객체가 가져야 할 속성들을 명시
+// el은 문자열 타입이고, count는 숫자 타입
+interface Vue {
+    el : string;
+    count : number;
+    init(this: Vue) : () => {};
+}
+
+let vm : Vue = {
+    el : '#app',
+    count : 10,
+    init : function(this: Vue) {
+        return () => {
+            return this.count;
+        }
+    }
+}
+
+let getCount = vm.init();
+let count = getCount();
+console.log(count);
