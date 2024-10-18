@@ -11,3 +11,12 @@ function processUserInput(callback: (name: string) => void) {
 }
 
 processUserInput(greeting);
+
+// 콜백 관련 추가 예시
+// 여기서 doSomethig 함수는 두 개의 number 값을 받아서 number 값을 반환하는 콜백을 필요로 한다.
+function doSomething(callback: (x : number, y: number) => number) {
+    const result = callback(10, 20);
+    console.log(result);
+}
+
+doSomething((a, b) => a + b);
