@@ -26,5 +26,12 @@
         "program": "${workspaceFolder}/src/this.ts",
         "outFiles": ["${workspaceFolder}/**/*.js"]
       },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch callback.ts",
+        "program": "${workspaceFolder}/src/callback.ts",
+        "outFiles": ["${workspaceFolder}/**/*.js"]
+      },
     ]
   }
